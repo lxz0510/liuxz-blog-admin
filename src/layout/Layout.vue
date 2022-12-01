@@ -15,7 +15,7 @@
         <menu-fold-outlined v-else class="trigger" @click="() => (collapsed = !collapsed)" />
       </a-layout-header>
       <a-layout-content :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }">
-        Content
+        <WriteMarkdown />
       </a-layout-content>
     </a-layout>
   </a-layout>
@@ -23,7 +23,7 @@
 <script setup>
 import { UserOutlined, VideoCameraOutlined, UploadOutlined, MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons-vue';
 import { ref } from 'vue';
-
+import WriteMarkdown from '../components/WriteMarkdown.vue'
 const selectedKeys = ref(['1'])
 const collapsed = ref(false)
 </script>
