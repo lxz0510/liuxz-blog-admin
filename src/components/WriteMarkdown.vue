@@ -1,7 +1,7 @@
 <template>
   <div id="editor">
     <textarea :value="input" @input="update"></textarea>
-    <div v-html="compiledMarkdown"></div>
+    <div v-html="compiledMarkdown" class="compiledMarkdown"></div>
   </div>
 </template>
 <script setup>
@@ -43,6 +43,10 @@ textarea {
   font-size: 14px;
   font-family: "Monaco", courier, monospace;
   padding: 20px;
+}
+
+.compiledMarkdown {
+  overflow: auto
 }
 
 code {
