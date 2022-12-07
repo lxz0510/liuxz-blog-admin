@@ -1,25 +1,29 @@
 <template>
   <div id="editor">
-    <textarea :value="input" @input="update"></textarea>
+    <textarea :value="modelValue" @input="update"></textarea>
     <div v-html="compiledMarkdown" class="compiledMarkdown"></div>
   </div>
 </template>
 <script setup>
 import { ref, computed } from 'vue'
 import { marked } from 'marked';
+const props = defineProps(['modelValue'])
+const emit = defineEmits(['update:modelValue'])
+
 const input = ref("# hello")
 
 const update = (e) => {
-  input.value = e.target.value;
+  emit('update:modelValue', e.target.value)
 }
 const compiledMarkdown = computed(() => {
-  return marked(input.value, { sanitize: true })
+  return marked(props.modelValue, { sanitize: true })
 })
 </script>
 <style>
 #editor {
+  border: 1px solid #40a9ff;
   margin: 0;
-  height: 100%;
+  height: 80%;
   font-family: "Helvetica Neue", Arial, sans-serif;
   color: #333;
 }

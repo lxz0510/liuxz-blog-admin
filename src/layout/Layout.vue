@@ -6,7 +6,9 @@
         <a-menu-item key="1">
           <span>Edit</span>
         </a-menu-item>
-
+        <a-menu-item key="1">
+          <span>Manage</span>
+        </a-menu-item>
       </a-menu>
     </a-layout-sider>
     <a-layout>
@@ -14,16 +16,16 @@
         <menu-unfold-outlined v-if="collapsed" class="trigger" @click="() => (collapsed = !collapsed)" />
         <menu-fold-outlined v-else class="trigger" @click="() => (collapsed = !collapsed)" />
       </a-layout-header>
-      <a-layout-content :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }">
-        <WriteMarkdown />
+      <a-layout-content :style="{ margin: '24px 16px', padding: '32px', background: '#fff', minHeight: '280px' }">
+        <EditArticle />
       </a-layout-content>
     </a-layout>
   </a-layout>
 </template>
 <script setup>
-import { UserOutlined, VideoCameraOutlined, UploadOutlined, MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons-vue';
+import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons-vue';
 import { ref } from 'vue';
-import WriteMarkdown from '../components/WriteMarkdown.vue'
+import EditArticle from '../views/EditArticle.vue'
 const selectedKeys = ref(['1'])
 const collapsed = ref(false)
 </script>
